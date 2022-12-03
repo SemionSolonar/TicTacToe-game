@@ -111,16 +111,16 @@ public class TicTacToeBoard extends View {
         paint.setColor(boardColor);
         paint.setStrokeWidth(16);
 
-        for (int i=1; i<3; i++){
-            canvas.drawLine(cellSize*i, 0, cellSize*i, canvas.getWidth(), paint );
+        for (int c=1; c<3; c++){
+            canvas.drawLine(cellSize*c, 0, cellSize*c, canvas.getWidth(), paint );
         }
 
-        for (int j=1; j<3; j++){
-            canvas.drawLine(0, cellSize*j, canvas.getWidth(), cellSize*j, paint );
+        for (int r=1; r<3; r++){
+            canvas.drawLine(0, cellSize*r, canvas.getWidth(), cellSize*r, paint );
         }
     }
 
-    private void drawMarkers (Canvas canvas) {
+    private void drawMarkers(Canvas canvas) {
 
         for(int r = 0 ; r<3 ; r++){
             for (int c=0;c<3;c++){
@@ -136,7 +136,7 @@ public class TicTacToeBoard extends View {
         }
     }
 
-    private void drawX (Canvas canvas , int row , int col) {
+    private void drawX(Canvas canvas , int row , int col) {
         paint.setColor(XColor);
 
         canvas.drawLine((float) ((col+1)*cellSize - cellSize * 0.2),
@@ -212,7 +212,7 @@ public class TicTacToeBoard extends View {
         }
     }
 
-    public void setUpGame (Button playAgain, Button home, TextView playerDisplay , String[] name) {
+    public void setUpGame(Button playAgain, Button home, TextView playerDisplay , String[] name) {
         game.setPlayAgainBTN(playAgain);
         game.setHomeBTN(home);
         game.setPlayerTurn(playerDisplay);

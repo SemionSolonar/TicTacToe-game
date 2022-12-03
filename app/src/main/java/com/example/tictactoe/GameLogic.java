@@ -6,12 +6,12 @@ import android.widget.TextView;
 
 public class GameLogic {
 
-    private int [] [] gameBoard;
+    private int[] [] gameBoard;
 
     private String [] playerNames = {"Player 1" , "Player 2"};
 
     //1st element --> row, 2nd element --> col, 3rd element --> line type
-    private int [] winType = {-1, -1, -1};
+    private int[] winType = {-1, -1, -1};
 
     private Button playAgainBTN;
     private Button homeBTN;
@@ -22,7 +22,7 @@ public class GameLogic {
     GameLogic() {
         gameBoard = new int[3][3];
         for(int r = 0 ; r<3 ; r++){
-            for (int c=0;c<3;c++){
+            for(int c = 0; c<3 ;c++){
                 gameBoard[r][c] = 0;
             }
         }
@@ -33,10 +33,10 @@ public class GameLogic {
             gameBoard[row-1][col-1] = player;
 
             if(player == 1) {
-                playerTurn.setText(playerNames[1] + "'s Turn");
+                playerTurn.setText((playerNames[1] + "'s Turn"));
             }
             else {
-                playerTurn.setText(playerNames[0] + "'s Turn");
+                playerTurn.setText((playerNames[0] + "'s Turn"));
             }
 
             return true;
@@ -46,7 +46,7 @@ public class GameLogic {
         }
     }
 
-    public boolean winnerCheck () {
+    public boolean winnerCheck() {
         boolean isWinner = false;
 
         //Horizontal Check (winType == 1)
@@ -60,7 +60,7 @@ public class GameLogic {
 
         //Vertical Check (winType == 2)
         for (int c = 0 ; c<3 ; c++) {
-            if(gameBoard[0][c] == gameBoard[1][c] && gameBoard[0][c] == gameBoard [2][c] &&
+            if(gameBoard[0][c] == gameBoard[1][c] && gameBoard[2][c] == gameBoard [0][c] &&
                     gameBoard[0][c] != 0 ){
                 winType = new int[] {0, c, 2};
                 isWinner = true;
@@ -75,7 +75,7 @@ public class GameLogic {
         }
 
         //positive diagonal check (winType == 4)
-        if(gameBoard[2][0] == gameBoard[1][1] && gameBoard[0][0] == gameBoard [0][2] &&
+        if(gameBoard[2][0] == gameBoard[1][1] && gameBoard[2][0] == gameBoard [0][2] &&
                 gameBoard[2][0] != 0 ){
             winType = new int[] {2, 2, 4};
             isWinner = true;
@@ -101,7 +101,7 @@ public class GameLogic {
             playAgainBTN.setVisibility(View.VISIBLE);
             homeBTN.setVisibility(View.VISIBLE);
             playerTurn.setText("Tie Game!!!");
-            return false;
+            return false;/// return true
         }
         else {
             return false;
